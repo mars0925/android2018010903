@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter();
         lv.setAdapter(adapter);
     }
+    public void click1(View v)
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i=0;i<chks.length;i++)
+        {
+            if (chks[i])
+            {
+                   sb.append(mylist.get(i).get("city") + ",");
+            }
+        }
+        Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_LONG).show();    }
     class MyAdapter extends BaseAdapter
     {
 

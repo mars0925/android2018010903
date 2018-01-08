@@ -2,6 +2,7 @@ package tw.com.pcschool.dd2018010804;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,27 @@ public class MainActivity extends AppCompatActivity {
         m4.put("code", "07");
         m4.put("img", R.drawable.kh);
         mylist.add(m4);
+
+        HashMap<String, Object> m5 = new HashMap<>();
+        m5.put("city", "台北2");
+        m5.put("code", "202");
+        m5.put("img", R.drawable.tpe);
+        mylist.add(m5);
+        HashMap<String, Object> m6 = new HashMap<>();
+        m6.put("city", "台中2");
+        m6.put("code", "204");
+        m6.put("img", R.drawable.tc);
+        mylist.add(m6);
+        HashMap<String, Object> m7 = new HashMap<>();
+        m7.put("city", "台南2");
+        m7.put("code", "206");
+        m7.put("img", R.drawable.tn);
+        mylist.add(m7);
+        HashMap<String, Object> m8 = new HashMap<>();
+        m8.put("city", "高雄2");
+        m8.put("code", "207");
+        m8.put("img", R.drawable.kh);
+        mylist.add(m8);
         lv = (ListView) findViewById(R.id.listView);
         MyAdapter adapter = new MyAdapter();
         lv.setAdapter(adapter);
@@ -66,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View view, ViewGroup viewGroup) {
             LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+            Log.d("GetView", "position:" + position);
             View v = inflater.inflate(R.layout.myitem, null);
 
             TextView tv = v.findViewById(R.id.textView);

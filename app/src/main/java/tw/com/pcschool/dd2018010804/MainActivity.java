@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     ListView lv;
+    boolean chks[] = new boolean[8];
     ArrayList<Map<String, Object>> mylist = new ArrayList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

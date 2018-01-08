@@ -2,6 +2,7 @@ package tw.com.pcschool.dd2018010804;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -40,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View view, ViewGroup viewGroup) {
-            TextView tv = new TextView(MainActivity.this);
+            LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+            View v = inflater.inflate(R.layout.myitem, null);
+
+            TextView tv = v.findViewById(R.id.textView);
             tv.setText(str[position]);
-            return tv;
+            return v;
         }
     }
 }

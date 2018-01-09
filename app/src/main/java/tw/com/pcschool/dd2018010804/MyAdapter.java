@@ -73,7 +73,7 @@ public class MyAdapter extends BaseAdapter {
         //如果 v這個view存在的話,表示是回收再用的view
         else
         {
-            //就直接將tag裡面的來用
+            //就直接將tag裡面的來用 ,不用再findViewById
             viewHolder = (ViewHolder) v.getTag();
         }
 
@@ -92,7 +92,7 @@ public class MyAdapter extends BaseAdapter {
 
         return v;
     }
-    //產生一個class放重複使用的view
+    //產生一個class放重複使用的元件
     static class ViewHolder
     {
         TextView tv;

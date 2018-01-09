@@ -1,5 +1,6 @@
 package tw.com.pcschool.dd2018010804;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +21,10 @@ import java.util.Map;
 public class MyAdapter extends BaseAdapter {
     ArrayList<Map<String, Object>> mylist = new ArrayList();
     boolean chks[] = new boolean[8];
-    public MyAdapter(ArrayList<Map<String, Object>> mylist)
+    Context context;
+    public MyAdapter(Context context, ArrayList<Map<String, Object>> mylist)
     {
+        this.context = context;
         this.mylist = mylist;
     }
     @Override
@@ -41,7 +44,7 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
-        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        LayoutInflater inflater = LayoutInflater.from(context);
         Log.d("GetView", "position:" + position);
         View v = inflater.inflate(R.layout.myitem, null);
 

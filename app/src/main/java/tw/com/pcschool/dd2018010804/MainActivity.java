@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         m8.put("img", R.drawable.kh);
         mylist.add(m8);
         lv = (ListView) findViewById(R.id.listView);
-        MyAdapter adapter = new MyAdapter(mylist);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, mylist);
         lv.setAdapter(adapter);
     }
     public void click1(View v)

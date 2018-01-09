@@ -44,27 +44,42 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View v, ViewGroup viewGroup) {
+        ViewHolder viewHolder;
         if (v == null)
         {
             LayoutInflater inflater = LayoutInflater.from(context);
             v = inflater.inflate(R.layout.myitem, null);
+            viewHolder = new ViewHolder();
+            viewHolder.tv = v.findViewById(R.id.textView);
+            viewHolder.tv2 = v.findViewById(R.id.textView2);
+            viewHolder.img = v.findViewById(R.id.imageView);
+            viewHolder.chk = (CheckBox) v.findViewById(R.id.checkBox);
+        }
+        else
+        {
+            viewHolder = (ViewHolder) v.getTag();
         }
 
-        TextView tv = v.findViewById(R.id.textView);
-        TextView tv2 = v.findViewById(R.id.textView2);
-        ImageView img = v.findViewById(R.id.imageView);
-        CheckBox chk = (CheckBox) v.findViewById(R.id.checkBox);
 
-        tv.setText(mylist.get(position).get("city").toString());
-        tv2.setText(mylist.get(position).get("code").toString());
-        img.setImageResource((Integer) mylist.get(position).get("img"));
-//        chk.setChecked(chks[position]);
-//        chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                chks[position] = b;
-//            }
-//        });
+
+        viewHolder.tv.setText(mylist.get(position).get("city").toString());
+        viewHolder.tv2.setText(mylist.get(position).get("code").toString());
+        viewHolder.img.setImageResource((Integer) mylist.get(position).get("img"));
+        viewHolder.chk.setChecked(chks[position]);
+        viewHolder.chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                chks[position] = b;
+            }
+        });
+        v.setTag(viewHolder);
         return v;
+    }
+    static class ViewHolder
+    {
+        TextView tv;
+        TextView tv2;
+        ImageView img;
+        CheckBox chk;
     }
 }
